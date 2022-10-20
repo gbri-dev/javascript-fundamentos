@@ -21,17 +21,19 @@ var alunos = [
     [10, 7, 10, 9]
 ]
 
-var contador = 0;
+
 var nota = 0;
-let aluno = alunos[0];
+
 
 for (var i = 0; i < alunos.length; i++) {
 
-    console.log("Aluno: " + alunos[i]);
+    let aluno = alunos[0];
+    console.log("Aluno: " + aluno);
 
-    for (contador = 0; contador < aluno.length; contador++) {
-        nota += aluno[contador];
+    for (c = 0; c < aluno.length; c++) {
+        nota += aluno[c];
     }
+
     let media = nota / 4;
 
     if (media >= 7) {
@@ -41,3 +43,4 @@ for (var i = 0; i < alunos.length; i++) {
     }
     console.log("Média: " + media + " - " + resultado);
 }
+
