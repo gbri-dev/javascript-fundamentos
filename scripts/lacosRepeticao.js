@@ -27,19 +27,22 @@ var nota = 0;
 
 for (var i = 0; i < alunos.length; i++) {
 
-    let aluno = alunos[0];
-    console.log("Aluno: " + aluno);
+    let NotasAluno = alunos[i];
+    console.log("Aluno: " + parseInt(i + 1));
+    console.log("Notas: " + NotasAluno)
 
-    for (c = 0; c < aluno.length; c++) {
-        nota += aluno[c];
+    for (c = 0; c < NotasAluno.length; c++) {
+        nota += NotasAluno[c];
     }
 
     let media = nota / 4;
 
     if (media >= 7) {
         var resultado = "aprovado";
+    } else if (media > 10) {
+        var resultado = "Erro, você não pode ter a média acima de 10 pontos";
     } else {
-        var resultado = "reprovado";
+        var resultado = "reprovado"
     }
     console.log("Média: " + media + " - " + resultado);
 }
