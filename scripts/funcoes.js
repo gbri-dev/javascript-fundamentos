@@ -29,3 +29,17 @@ function aprovacao(notas) {
 console.log(aprovacao([8, 8, 6, 10]))
 console.log(aprovacao([9, 7, 8, 10]))
 console.log(aprovacao([7, 8, 6, 10]))
+
+
+//Função recursiva
+//é quando vc chama a função dentro dela mesma 
+function funcaoRecursiva(contador) {
+    console.log(contador)
+
+    let proximoNumero = contador - 1
+    if (proximoNumero > 0) {
+        funcaoRecursiva(proximoNumero)
+    }
+}
+
+console.log(funcaoRecursiva(3))
