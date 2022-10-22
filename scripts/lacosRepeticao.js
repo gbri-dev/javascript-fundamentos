@@ -21,9 +21,8 @@ var alunos = [
     [10, 7, 10, 9]
 ]
 
-
+//exemplo for
 var nota = 0;
-
 
 for (var i = 0; i < alunos.length; i++) {
 
@@ -47,3 +46,20 @@ for (var i = 0; i < alunos.length; i++) {
     console.log("Média: " + media + " - " + resultado);
 }
 
+//example do while
+
+var inicio = 10
+
+do {
+    console.log(inicio)
+    inicio--
+} while (inicio > 0)
+
+//exemplo while
+var num1 = 18
+var num2 = 2
+var impar = num1 % num2
+while (impar == 1) {
+    console.log("O resto da divisão igual á " + impar + " é ímpar")
+}
+console.log("resto da divisão igual á " + impar + " é Par")
