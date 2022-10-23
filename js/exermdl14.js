@@ -34,6 +34,12 @@ document.addEventListener('submit', function (evento) {
         case '-': result = parseInt(valores[0]) - parseInt(valores[2])
             document.getElementById('resultado').innerHTML = result
             break;
+        case '*': result = parseInt(valores[0]) * parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result
+            break;
+        case '/': result = parseInt(valores[0]) / parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result
+            break;
         default: document.getElementById('resultado').innerHTML = "Operação inválida"
             break;
     }
