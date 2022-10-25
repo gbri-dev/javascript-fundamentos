@@ -29,16 +29,34 @@ document.addEventListener('submit', function (evento) {
     console.log(operador)
     switch (operador) {
         case '+': result = parseInt(valores[0]) + parseInt(valores[2])
-            document.getElementById('resultado').innerHTML = result
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
             break;
         case '-': result = parseInt(valores[0]) - parseInt(valores[2])
-            document.getElementById('resultado').innerHTML = result
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
             break;
         case '*': result = parseInt(valores[0]) * parseInt(valores[2])
-            document.getElementById('resultado').innerHTML = result
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
             break;
         case '/': result = parseInt(valores[0]) / parseInt(valores[2])
-            document.getElementById('resultado').innerHTML = result
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
+            break;
+        case '<': result = parseInt(valores[0]) < parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
+            break;
+        case '>': result = parseInt(valores[0]) > parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
+            break;
+        case '==': result = parseInt(valores[0]) == parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
+            break;
+        case '<=': result = parseInt(valores[0]) <= parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
+            break;
+        case '>=': result = parseInt(valores[0]) >= parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
+            break;
+        case '!=': result = parseInt(valores[0]) != parseInt(valores[2])
+            document.getElementById('resultado').innerHTML = result + " " + typeof (result)
             break;
         default: document.getElementById('resultado').innerHTML = "Operação inválida"
             break;
