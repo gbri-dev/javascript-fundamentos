@@ -10,14 +10,14 @@ html {
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 70px auto;
 }
 
 form {
     background: #ddd;
-    padding: 20px;
     display: block;
-    margin: 20px auto;
+    padding: 40px;
+    margin: 0 auto;
     width: 50%;
 }
 
@@ -37,7 +37,12 @@ input {
     width: 80%;
     padding: 1rem 2rem;
 }
-
+input:valid {
+    border: 1px solid green;
+}
+input:invalid {
+    border: 1px solid red;
+}
 button {
     border: 0 none;
     border-radius: 2rem;

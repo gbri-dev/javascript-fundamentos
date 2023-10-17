@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcular média JS</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <form action="" id="formulario1">
-            <input type="text" name="n1" placeholder="digite sua nota">
-            <input type="text" name="n2" placeholder="digite sua nota">
-            <input type="text" name="n3" placeholder="digite sua nota">
-            <input type="text" name="n4" placeholder="digite sua nota">
+        <form action="" id="formulario1" name="myForm">
+            <input type="number" name="n1" placeholder="digite sua nota" min="0" max="10" required />
+            <input type="number" name="n2" placeholder="digite sua nota" min="0" max="10" required />
+            <input type="number" name="n3" placeholder="digite sua nota" min="0" max="10" required />
+            <input type="number" name="n4" placeholder="digite sua nota" min="0" max="10" required />
             <button type="submit" value="enviar">Enviar</button>
         </form>
         <div id="resultado">
