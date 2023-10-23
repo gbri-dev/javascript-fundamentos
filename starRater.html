@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star rater componente JS</title>
+  <style>
+    body {
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    main {
+      text-align: center;
+    }
+
+    main h1 {
+      height: 90px;
+      color: red;
+    }
+
+    main section {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2rem;
+    }
+
+    @media (max-width: 1366px) {
+      main section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header style="text-align: center;">
+    <h1>Star Rater</h1>
+  </header>
+  <!-- <div class="star-rater">
+    <span class="span" data-value="1">&#9733;</span>
+    <span class="span" data-value="2">&#9733;</span>
+    <span class="span" data-value="3">&#9733;</span>
+    <span class="span" data-value="4">&#9733;</span>
+    <span class="span" data-value="5">&#9733;</span>
+  </div> -->
+  <main>
+    <star-rater></star-rater>
+    <br />
+    <h1>Círculos</h1>
+    <section>
+      <meu-circulo texto="Comp. #01" cor="red"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="yellow"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="blue"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="green"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="gray"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="black"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="purple"></meu-circulo>
+      <meu-circulo texto="Comp. #02" cor="pink"></meu-circulo>
+    </section>
+  </main>
+
+  <script src="./scripts/componentes/starRater.js"></script>
+  <script src="./scripts/componentes/componente.js"></script>
+
+</body>
+
+</html>
