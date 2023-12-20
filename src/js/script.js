@@ -19,7 +19,18 @@ $(document).ready(function(){
         const endpoint = `https://viacep.com.br/ws/${cep}/json`
 
         $.ajax(endpoint).done(function(resposta){
-            console.log(resposta)
+            let logradouro = ""            
+            let bairro = ""
+            const cidade = resposta.localidade
+            const estado = resposta.uf
+            if(resposta.logradouro !== ""){
+                logradouro = resposta.logradouro + ", "
+            }
+            if(resposta.bairro !== ""){
+                bairro = resposta.bairro + " - "
+            }
+            const endereco = `${logradouro}${bairro}${cidade} - ${estado}`
+            $('#endereco').val(endereco)
         })
     })
 })
