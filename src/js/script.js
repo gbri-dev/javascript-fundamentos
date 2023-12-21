@@ -11,6 +11,26 @@
 // })
 
 // JQUERY
+const jqueryAjax = (endpoint, botao) => {
+    $.ajax(endpoint).done(function(objetoResposta){
+        corpoDaRequisicao(objetoResposta)
+        spinnerCep(botao)
+    })
+}
+
+//requisições via api usando FETCH
+const requisicaoFetch = (endpoint, botao) => {
+    fetch(endpoint).then(function(resposta){
+        return resposta.json()
+    }).then(function(json){
+        corpoDaRequisicao(json, botao)
+    }).catch(function(erro){
+        alert("Ocorreu um erro ao buscar o endereço, tente novamente mais tarde. \n\nErro: " + erro)               
+    }).finally(function(){
+        spinnerCep(botao)
+    })
+}
+
 $(document).ready(function(){
     //JQUERY MASK PLUGIN
     $('#cep').mask('00000-000')
@@ -25,13 +45,6 @@ $(document).ready(function(){
         requisicaoFetch(endpoint, botao)        
     })
 })
-
-const spinnerCep = (botao) => {
-    setTimeout(function(){
-        $(botao).find('i').removeClass('d-none')
-        $(botao).find('span').addClass('d-none')
-    }, 1000) 
-}
 
 const corpoDaRequisicao = (objetoResposta) => {
     let logradouro = ""            
@@ -56,22 +69,9 @@ const corpoDaRequisicao = (objetoResposta) => {
     }           
 }
 
-const jqueryAjax = (endpoint, botao) => {
-    $.ajax(endpoint).done(function(objetoResposta){
-        corpoDaRequisicao(objetoResposta)
-        spinnerCep(botao)
-    })
-}
-
-//requisições via api usando FETCH
-const requisicaoFetch = (endpoint, botao) => {
-    fetch(endpoint).then(function(resposta){
-        return resposta.json()
-    }).then(function(json){
-        corpoDaRequisicao(json, botao)
-    }).catch(function(erro){
-        alert("Ocorreu um erro ao buscar o endereço, tente novamente mais tarde. \n\nErro: " + erro)               
-    }).finally(function(){
-        spinnerCep(botao)
-    })
+const spinnerCep = (botao) => {
+    setTimeout(function(){
+        $(botao).find('i').removeClass('d-none')
+        $(botao).find('span').addClass('d-none')
+    }, 1000) 
 }
