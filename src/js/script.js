@@ -44,7 +44,25 @@ $(document).ready(function(){
         //jqueryAjax(endpoint, botao)
         requisicaoFetch(endpoint, botao)        
     })
+
+    $('#formulario-pedido').submit(function(e){
+        e.preventDefault()
+        const primeiroNome = $('#nome').val().length
+        if( primeiroNome < 3){
+            $('#errorNome').text("O nome precisa conter no mínimo 3 caracteres.")
+            $('#errorNome').removeClass('d-none')
+            throw new Error('O nome precisa conter no mínimo 3 caracteres.')
+        }
+
+        $('#errorNome').addClass('d-none')        
+        cleanForm()
+        console.info("success")
+    })
 })
+
+const cleanForm = () => {
+    $('#formulario-pedido input').val("")
+}
 
 const corpoDaRequisicao = (objetoResposta) => {
     let logradouro = ""            
