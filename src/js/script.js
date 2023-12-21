@@ -26,28 +26,40 @@ $(document).ready(function(){
     })
 })
 
-const corpoDaRequisicao = (objetoResposta, botao) => {
+const spinnerCep = (botao) => {
+    setTimeout(function(){
+        $(botao).find('i').removeClass('d-none')
+        $(botao).find('span').addClass('d-none')
+    }, 1000) 
+}
+
+const corpoDaRequisicao = (objetoResposta) => {
     let logradouro = ""            
     let bairro = ""
     const cidade = objetoResposta.localidade
     const estado = objetoResposta.uf
-    if(objetoResposta.logradouro !== ""){
+    let endereco = ""
+    if(objetoResposta.logradouro !== "" && objetoResposta.logradouro !== undefined){
        logradouro = objetoResposta.logradouro + ", "
     }
-    if(objetoResposta.bairro !== ""){
+    if(objetoResposta.bairro !== "" && objetoResposta.bairro !== undefined){
        bairro = objetoResposta.bairro + " - "
     }
-    const endereco = `${logradouro}${bairro}${cidade} - ${estado}`
-    $('#endereco').val(endereco)
-    setTimeout(function(){
-        $(botao).find('i').removeClass('d-none')
-        $(botao).find('span').addClass('d-none')
-    }, 1000)    
+    if(cidade == undefined || estado == undefined){
+        $('#errorCep').text("Não foi encontrador nenhum endereço, tente outro cep.")
+        $('#errorCep').removeClass('d-none')
+        $('#endereco').val("")
+    }else{
+       endereco = `${logradouro}${bairro}${cidade} - ${estado}`
+       $('#endereco').val(endereco)       
+       $('#errorCep').addClass('d-none')
+    }           
 }
 
 const jqueryAjax = (endpoint, botao) => {
     $.ajax(endpoint).done(function(objetoResposta){
-        corpoDaRequisicao(objetoResposta, botao)
+        corpoDaRequisicao(objetoResposta)
+        spinnerCep(botao)
     })
 }
 
@@ -58,8 +70,8 @@ const requisicaoFetch = (endpoint, botao) => {
     }).then(function(json){
         corpoDaRequisicao(json, botao)
     }).catch(function(erro){
-        alert("Ocorreu um erro ao buscar o endereço, tente novamente mais tarde. \n\nErro: " + erro)        
-        $(botao).find('i').removeClass('d-none')
-        $(botao).find('span').addClass('d-none')
+        alert("Ocorreu um erro ao buscar o endereço, tente novamente mais tarde. \n\nErro: " + erro)               
+    }).finally(function(){
+        spinnerCep(botao)
     })
 }

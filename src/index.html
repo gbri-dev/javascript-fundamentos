@@ -28,15 +28,20 @@
                 <h4>Dados da entrega</h4>
             </div>
             <div class="row mb-3">
-                <div class="col-sm-3 d-flex">
-                    <input type="text" class="form-control mb-1" placeholder="CEP" id="cep" required>
-                    <button type="button" class="btn btn-primary ms-1 mb-1" id="btn-buscar-cep">
-                        <i class="bi bi-search"></i>
-                        <span class="d-none spinner-border spinner-border-sm"></span>
-                    </button>
-                </div>
+                <div class="col-sm-3">
+                    <div class="d-flex">                    
+                        <input type="text" class="form-control mb-1" placeholder="CEP" id="cep" required>                                        
+                        <button type="button" class="btn btn-primary ms-1 mb-1" id="btn-buscar-cep">
+                            <i class="bi bi-search"></i>
+                            <span class="d-none spinner-border spinner-border-sm"></span>
+                        </button>
+                    </div>
+                    <div>
+                        <span class="d-none text-danger" id="errorCep"></span>
+                    </div>
+                </div>                
                 <div class="col-sm-7">
-                    <input type="text" class="form-control mb-1" placeholder="Endereço" id="endereco">
+                    <input type="text" class="form-control mb-1" placeholder="Endereço" id="endereco" required>
                 </div>
                 <div class="col-sm-2">
                     <input type="number" class="form-control mb-1" placeholder="Número">
