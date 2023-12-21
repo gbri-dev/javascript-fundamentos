@@ -57,5 +57,9 @@ const requisicaoFetch = (endpoint, botao) => {
         return resposta.json()
     }).then(function(json){
         corpoDaRequisicao(json, botao)
+    }).catch(function(erro){
+        alert("Ocorreu um erro ao buscar o endereço, tente novamente mais tarde. \n\nErro: " + erro)        
+        $(botao).find('i').removeClass('d-none')
+        $(botao).find('span').addClass('d-none')
     })
 }
