@@ -11,36 +11,51 @@
 // })
 
 // JQUERY
-
 $(document).ready(function(){
+    //JQUERY MASK PLUGIN
     $('#cep').mask('00000-000')
     
-    $('#btn-buscar-cep').on('click', function(){
-        const xhttp = new XMLHttpRequest()
+    $('#btn-buscar-cep').on('click', function(){        
         const cep = $('#cep').val()
         const endpoint = `https://viacep.com.br/ws/${cep}/json`
         const botao = $(this)
         $(botao).find('i').addClass('d-none')
         $(botao).find('span').removeClass('d-none')
-
-        $.ajax(endpoint).done(function(resposta){
-            let logradouro = ""            
-            let bairro = ""
-            const cidade = resposta.localidade
-            const estado = resposta.uf
-            if(resposta.logradouro !== ""){
-                logradouro = resposta.logradouro + ", "
-            }
-            if(resposta.bairro !== ""){
-                bairro = resposta.bairro + " - "
-            }
-            const endereco = `${logradouro}${bairro}${cidade} - ${estado}`
-            $('#endereco').val(endereco)
-
-            setTimeout(function(){
-                $(botao).find('i').removeClass('d-none')
-                $(botao).find('span').addClass('d-none')
-            }, 1000)
-        })
+        //jqueryAjax(endpoint, botao)
+        requisicaoFetch(endpoint, botao)        
     })
 })
+
+const corpoDaRequisicao = (objetoResposta, botao) => {
+    let logradouro = ""            
+    let bairro = ""
+    const cidade = objetoResposta.localidade
+    const estado = objetoResposta.uf
+    if(objetoResposta.logradouro !== ""){
+       logradouro = objetoResposta.logradouro + ", "
+    }
+    if(objetoResposta.bairro !== ""){
+       bairro = objetoResposta.bairro + " - "
+    }
+    const endereco = `${logradouro}${bairro}${cidade} - ${estado}`
+    $('#endereco').val(endereco)
+    setTimeout(function(){
+        $(botao).find('i').removeClass('d-none')
+        $(botao).find('span').addClass('d-none')
+    }, 1000)    
+}
+
+const jqueryAjax = (endpoint, botao) => {
+    $.ajax(endpoint).done(function(objetoResposta){
+        corpoDaRequisicao(objetoResposta, botao)
+    })
+}
+
+//requisições via api usando FETCH
+const requisicaoFetch = (endpoint, botao) => {
+    fetch(endpoint).then(function(resposta){
+        return resposta.json()
+    }).then(function(json){
+        corpoDaRequisicao(json, botao)
+    })
+}
