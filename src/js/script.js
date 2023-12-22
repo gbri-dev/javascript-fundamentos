@@ -17,5 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
         followersElement.innerHTML = json.followers
         followingElement.innerHTML = json.following
         linkElement.href = json.html_url
+    }).catch(function(erro){
+        alert("Ocorreu um erro inesperado, tente novamente mais tarde. \n\nErro: " + erro)               
     })
 })
