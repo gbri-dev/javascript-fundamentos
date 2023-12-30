@@ -25,3 +25,45 @@ for (let chave of meuMap.keys()){
 for (let value of meuMap.values()){
     console.log(`values: ${value}`)
 }
+
+console.log('\n')
+console.log('Items entries')
+for (let [chave, valor] of meuMap.entries()){
+    console.log(`${chave}: ${valor}`)
+}
+
+//deletar props no map
+meuMap.delete('stack')
+
+////////////////////////
+///  set
+////////////////////
+                ///
+               ///
+              ///
+             ///
+/////////////// 
+
+const cpfs = new Set()
+cpfs.add('17657552701')
+cpfs.add('34915406032')
+cpfs.add('15915400972')
+//a diferença está que a chaves são os mesmo que os valores
+//console.log(cpfs)
+console.log(cpfs.keys())
+//console.log(cpfs.values())
+
+cpfs.forEach((cpf) => {
+    console.log(cpf)
+})
+
+// criar uma listagem de items únicos
+const arrayPessoas = ['Giovani', 'Gean', 'José Paulo', 'Jovila', 'Jovila', 'Gean']
+
+//converte um array pra set
+const setPessoas = new Set([...arrayPessoas])
+//converte um set para array novamente sem os items duplicados.
+const pessoas = [...setPessoas]
+
+console.log(pessoas)
+
