@@ -58,9 +58,9 @@
 
     console.log(existeAlunoBackEnd + '\n')
 
-    function filtraAlunosFrontEnd(aluno){
-        return aluno.curso === 'FrontEnd'
-    }
+    // function filtraAlunosFrontEnd(aluno){
+    //     return aluno.curso === 'FrontEnd'
+    // }
 
     const filtraAlunoBackEnd = (aluno) => aluno.curso === 'BackEnd'
 
