@@ -31,12 +31,14 @@
     })
     console.log(dobroNumero)
     console.log('\n*********************\n')
+
     const karen = cursoAluno.find(function(item){
         return item.nome == 'Karen'
     })
     const indiceDaKaren = cursoAluno.findIndex(function(item){
         return item.nome == 'Karen'
     })
+
     console.log(indiceDaKaren,karen)
 
     console.log('\n')
@@ -64,7 +66,7 @@
 
     const filtraAlunoBackEnd = (aluno) => aluno.curso === 'BackEnd'
 
-    const alunosFrontEnd = cursoAluno.filter(filtraAlunosFrontEnd)
+    const alunosFrontEnd = cursoAluno.filter(filtraAlunoBackEnd)
 
     console.log(alunosFrontEnd)
 
