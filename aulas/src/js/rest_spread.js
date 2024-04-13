@@ -61,4 +61,5 @@ const { motor: motorDaLis } = carroDaLis
 const [item1, item2, item3, ...outrosTimes] = todosOsTimes
 
 console.log(`${item1} - ${item2} - ${item3}`)
+
 console.log(outrosTimes)
