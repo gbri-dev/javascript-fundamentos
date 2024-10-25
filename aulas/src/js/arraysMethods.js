@@ -66,9 +66,9 @@
 
     const filtraAlunoBackEnd = (aluno) => aluno.curso === 'BackEnd'
 
-    const alunosFrontEnd = cursoAluno.filter(filtraAlunoBackEnd)
+    const alunosBackEnd = cursoAluno.filter(filtraAlunoBackEnd)
 
-    console.log(alunosFrontEnd)
+    console.log(alunosBackEnd)
 
     const nums = [44, 43, 24, 14, 21]
 
